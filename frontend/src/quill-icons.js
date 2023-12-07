@@ -1,0 +1,21 @@
+import ReactQuill from "react-quill";
+
+export var icons = ReactQuill.Quill.import("ui/icons");
+icons["bold"] = '<i class="bi bi-type-bold"></i>';
+icons["italic"] = '<i class="bi bi-type-italic"></i>';
+icons["underline"] = '<i class="bi bi-type-underline"></i>';
+icons["strike"] = '<i class="bi bi-type-strikethrough"></i>';
+icons["script"]["sub"] = '<i class="bi bi-subscript"></i>';
+icons["script"]["super"] = '<i class="bi bi-superscript"></i>';
+icons["blockquote"] = '<i class="bi bi-quote"></i>';
+icons["code-block"] = '<i class="bi bi-code-slash"></i>';
+icons["list"]["ordered"] = '<i class="bi bi-list-ol"></i>';
+icons["list"]["bullet"] = '<i class="bi bi-list-ul"></i>';
+icons["indent"]["-1"] = '<i class="bi bi-text-indent-left"></i>';
+icons["indent"]["+1"] = '<i class="bi bi-text-indent-right"></i>';
+icons["align"][""] = '<i class="bi bi-justify-left"></i>';
+icons["align"]["center"] = '<i class="bi bi-text-center"></i>';
+icons["align"]["right"] = '<i class="bi bi-justify-right"></i>';
+icons["align"]["justify"] = '<i class="bi bi-justify"></i>';
+icons["link"] = '<i class="bi bi-link-45deg"></i>';
+icons["image"] = '<i class="bi bi-image"></i>';
