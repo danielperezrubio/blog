@@ -22,4 +22,4 @@ async def upload_file(
         raise HTTPException(status.HTTP_400_BAD_REQUEST, detail="Invalid image")
     image_name = await save_image(file)
     image = await crud_image.create_image(db, image_name)
-    return {"filename": image}
+    return {"id": image.id, "image_name": image.image_name}

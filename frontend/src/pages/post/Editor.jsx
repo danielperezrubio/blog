@@ -29,7 +29,7 @@ const Editor = () => {
         uploadImage(token, file)
           .then((res) => {
             let imageUrl = `${import.meta.env.VITE_IMAGES_URL}/${
-              res.data.filename.image_name
+              res.data.image_name
             }`;
             const editorContent = quillRef.current.getEditor().root.innerHTML;
             const updatedContent = editorContent.replace(image, imageUrl);
