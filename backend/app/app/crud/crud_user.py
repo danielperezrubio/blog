@@ -5,7 +5,9 @@ from app import schemas, models
 from app.utils.password import get_password_hash
 
 
-async def create_user(db: AsyncSession, user: schemas.UserCreate, is_admin=False):
+async def create_user(
+    db: AsyncSession, user: schemas.UserCreate, is_admin=False
+) -> models.User:
     db_user = models.User(
         user.username, user.email, get_password_hash(user.password), is_admin
     )

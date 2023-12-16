@@ -7,7 +7,7 @@ from app.crud import crud_user
 from app.models import User
 
 
-async def create_first_superuser(db: AsyncSession):
+async def create_first_superuser(db: AsyncSession) -> User:
     user = schemas.UserCreate(
         username=settings.FIRST_SUPERUSER_USERNAME,
         email=settings.FIRST_SUPERUSER_EMAIL,
@@ -17,7 +17,7 @@ async def create_first_superuser(db: AsyncSession):
     return admin_user
 
 
-async def get_admin_user(db: AsyncSession) -> bool:
-    statement = select(User).where(User.is_admin == True).limit(1)
+async def get_admin_user(db: AsyncSession) -> User:
+    statement = select(User).where(User.is_admin).limit(1)
     user = await db.scalar(statement)
     return user
