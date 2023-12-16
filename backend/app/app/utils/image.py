@@ -17,7 +17,7 @@ async def save_image(file):
 async def is_valid_image(file) -> bool:
     try:
         with Image.open(file.file) as image:
-            if image.format not in ["JPEG", "PNG"]:
+            if image.format not in ["JPEG", "PNG", "GIF"]:
                 return False
             return True
     except UnidentifiedImageError:
