@@ -39,6 +39,8 @@ async def get_post(
     db: Annotated[AsyncSession, Depends(get_db)], id: int
 ) -> schemas.PostResponse:
     post = await crud_post.get_post(db, id)
+    if not post:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, detail="post not found")
     return post
 
 
