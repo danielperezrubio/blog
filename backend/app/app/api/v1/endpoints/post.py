@@ -95,4 +95,3 @@ async def delete_post(
             detail="the current user is not the owner of the post",
         )
     await crud_post.delete_post(db, post)
-    return {}
