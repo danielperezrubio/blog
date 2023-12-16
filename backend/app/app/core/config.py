@@ -51,5 +51,18 @@ class Settings(BaseSettings):
     MAIL_SSL_TLS: bool = False
     USE_CREDENTIALS: bool = True
 
+    # Tests
+    UPLOAD_FOLDER_TEST: str = os.path.join(APP_PATH, "tests", "media")
+    POSTGRES_DB_TEST: str = ""
+
+    @property
+    def DATABASE_URL_TEST(self) -> PostgresDsn:
+        return (
+            f"postgresql+asyncpg://{self.POSTGRES_USER}"
+            + f":{self.POSTGRES_PASSWORD}"
+            + f"@{self.POSTGRES_HOST}"
+            + f"/{self.POSTGRES_DB_TEST}"
+        )
+
 
 settings = Settings()
