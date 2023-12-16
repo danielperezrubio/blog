@@ -67,9 +67,9 @@ function Header() {
                 <NavLink
                   activeclassname="active"
                   className="nav-link"
-                  to="/post/view/latest"
+                  to="/post/list"
                 >
-                  View
+                  Posts
                 </NavLink>
               </li>
               {user.isAdmin && (
