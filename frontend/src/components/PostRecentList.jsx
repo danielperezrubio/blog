@@ -14,6 +14,7 @@ function PostRecentList() {
 
   return (
     <section className="mt-5">
+      <hr />
       <p className="text-center">
         <em>Recent Posts</em>
       </p>
