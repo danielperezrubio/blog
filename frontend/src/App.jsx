@@ -19,6 +19,7 @@ import PasswordRecovery from "./pages/auth/PasswordRecovery";
 import PostEdit from "./pages/post/PostEdit";
 import { ToastContainer } from "react-toastify";
 import { icons } from "./quill-icons";
+import Footer from "./components/Footer";
 
 function App() {
   const { user, isLoadingUser } = useContext(UserContext);
@@ -66,6 +67,7 @@ function App() {
         <Route path="/logout" element={<Logout />} />
         <Route path="/password_recovery" element={<PasswordRecovery />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

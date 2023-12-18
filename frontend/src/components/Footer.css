@@ -1,0 +1,15 @@
+footer {
+  background-color: #1b1f24;
+  padding: auto 1rem;
+}
+
+footer i {
+  color: #81858c;
+  font-size: 1.4rem;
+}
+
+footer .container {
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
