@@ -3,13 +3,18 @@ footer {
   padding: auto 1rem;
 }
 
-footer i {
-  color: #81858c;
-  font-size: 1.4rem;
-}
-
 footer .container {
   display: flex;
   height: 100%;
   align-items: center;
+}
+
+footer a {
+  color: #81858c;
+  font-size: 1.4rem;
+  padding: 8px 10px;
+}
+footer a:hover {
+  border-radius: 50px;
+  box-shadow: 0 1px 10px rgb(23, 23, 26);
 }
