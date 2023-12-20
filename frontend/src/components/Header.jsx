@@ -14,10 +14,10 @@ function Header() {
   }
 
   return (
-    <header style={{ backgroundColor: "#1f6fc4" }}>
+    <header style={{ backgroundColor: "rgba(47, 152, 255, 0.5)" }}>
       <nav className="navbar navbar-expand-lg" data-bs-theme="dark">
-        <div className="container-fluid me-2">
-          <Link className="navbar-brand" to="/">
+        <div className="container-fluid">
+          <Link className="navbar-brand ps-lg-4" to="/">
             Blog
           </Link>
           <button
@@ -36,23 +36,31 @@ function Header() {
             id="navbarSupportedContent"
           >
             <form
-              className="d-flex bg-dark rounded align-items-center justify-content-center p-2 me-5"
-              style={{ height: "38px" }}
+              className="d-flex rounded align-items-center p-2 mx-auto"
+              style={{
+                height: "38px",
+                backgroundColor: "#233f59",
+              }}
               onSubmit={handleSubmit}
             >
               <i className="bi bi-search mx-1"></i>
               <input
-                className="ms-1 me-5 bg-dark"
+                className="ms-1 me-5"
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
-                style={{ border: "none", outline: "none", color: "#ccd1d5" }}
+                style={{
+                  border: "none",
+                  outline: "none",
+                  color: "white",
+                  backgroundColor: "inherit",
+                }}
                 onChange={(e) => {
                   setFilterWord(e.target.value);
                 }}
               />
             </form>
-            <ul className="navbar-nav mb-2 mb-lg-0">
+            <ul className="navbar-nav mb-lg-0 pe-lg-4">
               <li className="nav-item">
                 <NavLink
                   activeclassname="active"
