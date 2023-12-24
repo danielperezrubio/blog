@@ -20,7 +20,7 @@
 }
 
 .ql-toolbar.ql-snow {
-  background-color: #202122;
+  background-color: #1f2124;
   border: 1px solid rgb(88, 86, 86);
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
@@ -44,7 +44,7 @@
 }
 
 .ql-container.ql-snow {
-  background-color: #282a33;
+  background-color: #212529;
   border: 1px solid rgb(88, 86, 86);
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
