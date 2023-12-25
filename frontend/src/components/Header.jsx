@@ -17,8 +17,18 @@ function Header() {
     <header style={{ backgroundColor: "rgba(47, 152, 255, 0.5)" }}>
       <nav className="navbar navbar-expand-lg" data-bs-theme="dark">
         <div className="container-fluid">
-          <Link className="navbar-brand ps-lg-4" to="/">
-            Blog
+          <Link
+            className="navbar-brand ps-lg-4 d-flex align-items-center"
+            to="/"
+          >
+            <img
+              src="/favicon.ico"
+              alt="blog-icon"
+              width={"35px"}
+              height={"35px"}
+              className="me-1"
+            />
+            DPB
           </Link>
           <button
             className="navbar-toggler"
