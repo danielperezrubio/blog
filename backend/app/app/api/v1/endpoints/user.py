@@ -25,6 +25,9 @@ async def get_user(
     db: Annotated[AsyncSession, Depends(get_db)],
     current_user: Annotated[User, Depends(get_current_active_user)],
 ) -> UserResponse:
+    """
+    Get current user.
+    """
     return current_user
 
 
@@ -34,6 +37,9 @@ async def reset_user_password(
     email: EmailStr,
     background_tasks: BackgroundTasks,
 ):
+    """
+    Send an email to the user with the reset password link.
+    """
     user = await crud_user.get_user_by_email(db, email)
     if not user:
         raise HTTPException(
@@ -48,6 +54,9 @@ async def reset_user_password(
 async def update_user_password(
     db: Annotated[AsyncSession, Depends(get_db)], data: UserPasswordUpdate
 ):
+    """
+    Update user password.
+    """
     invalid_token_exception = HTTPException(
         status.HTTP_401_UNAUTHORIZED, detail="Invalid token"
     )
@@ -63,6 +72,9 @@ async def update_user_password(
 
 @router.patch("/user/activate")
 async def activate_user(db: Annotated[AsyncSession, Depends(get_db)], token: str):
+    """
+    Activate an user.
+    """
     invalid_token_exception = HTTPException(
         status.HTTP_401_UNAUTHORIZED, detail="Invalid token"
     )

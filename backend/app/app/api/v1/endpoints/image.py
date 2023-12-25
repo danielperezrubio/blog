@@ -18,6 +18,9 @@ async def upload_file(
     current_user: Annotated[User, Depends(get_current_active_user)],
     file: UploadFile,
 ):
+    """
+    Create new image.
+    """
     if not await is_valid_image(file):
         raise HTTPException(status.HTTP_400_BAD_REQUEST, detail="Invalid image")
     image_name = await save_image(file)

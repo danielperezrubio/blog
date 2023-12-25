@@ -27,6 +27,9 @@ async def create_post(
     current_user: Annotated[models.User, Depends(get_current_active_user)],
     post: schemas.PostCreate,
 ) -> schemas.PostResponse:
+    """
+    Create new post.
+    """
     await common_validations(post)
     cleaned_post = await clean_html(post.content)
     post.content = cleaned_post
@@ -38,6 +41,9 @@ async def create_post(
 async def get_post(
     db: Annotated[AsyncSession, Depends(get_db)], id: int
 ) -> schemas.PostResponse:
+    """
+    Get a post by id.
+    """
     post = await crud_post.get_post(db, id)
     if not post:
         raise HTTPException(status.HTTP_404_NOT_FOUND, detail="post not found")
@@ -52,6 +58,9 @@ async def get_posts(
     send_content: bool = True,
     filter_word: str | None = None,
 ) -> list[schemas.PostResponse]:
+    """
+    Get posts.
+    """
     posts = await crud_post.get_posts(db, limit, offset, filter_word)
     if send_content is not True:
         for post in posts:
@@ -66,6 +75,9 @@ async def update_post(
     id: int,
     post: schemas.PostUpdate,
 ) -> schemas.PostResponse:
+    """
+    Update a post.
+    """
     await common_validations(post)
     db_post = await crud_post.get_post(db, id)
     if not db_post:
@@ -86,6 +98,9 @@ async def delete_post(
     current_user: Annotated[models.User, Depends(get_current_active_user)],
     id: int,
 ):
+    """
+    Delete a post.
+    """
     post = await crud_post.get_post(db, id)
     if not post:
         raise HTTPException(status.HTTP_404_NOT_FOUND, detail="post not found")
