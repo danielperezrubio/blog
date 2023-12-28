@@ -19,7 +19,6 @@ async def test_create_post(client: AsyncClient, db: AsyncSession, admin_headers:
     assert content["title"] == post.title
     assert content["content"] == post.content
     assert content["tags"] == post.tags
-    assert content["owner_id"] == post.owner_id
 
 
 @pytest.mark.asyncio
@@ -41,7 +40,6 @@ async def test_get_post(client: AsyncClient, db: AsyncSession, admin_headers: di
     assert content["title"] == post.title
     assert content["content"] == post.content
     assert content["tags"] == post.tags
-    assert content["owner_id"] == post.owner_id
 
 
 @pytest.mark.asyncio

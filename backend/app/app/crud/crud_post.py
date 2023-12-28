@@ -7,12 +7,8 @@ from app.models import Post
 from app import schemas
 
 
-async def create_post(
-    db: AsyncSession, post: schemas.PostCreate, owner_id: int
-) -> Post:
-    db_post = Post(
-        title=post.title, content=post.content, tags=post.tags, owner_id=owner_id
-    )
+async def create_post(db: AsyncSession, post: schemas.PostCreate) -> Post:
+    db_post = Post(title=post.title, content=post.content, tags=post.tags)
     db.add(db_post)
     await db.commit()
     await db.refresh(db_post)

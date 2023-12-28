@@ -12,12 +12,10 @@ class Post(Base):
     title = Column(String(255), nullable=False)
     content = Column(String, nullable=False)
     tags = Column(ARRAY(VARCHAR), nullable=False)
-    owner_id = Column(Integer, ForeignKey("users.id"), nullable=False)
     published_at = Column(DateTime, nullable=False, default=datetime.now)
     updated_at = Column(DateTime)
 
-    def __init__(self, title, content, tags, owner_id):
+    def __init__(self, title, content, tags):
         self.title = title
         self.content = content
         self.tags = tags
-        self.owner_id = owner_id

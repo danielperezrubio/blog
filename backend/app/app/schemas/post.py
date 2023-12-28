@@ -15,7 +15,6 @@ class PostCreate(PostBase):
 
 class PostResponse(PostBase):
     id: int
-    owner_id: int
     published_at: datetime
     updated_at: datetime | None
 

@@ -33,7 +33,7 @@ async def create_post(
     await common_validations(post)
     cleaned_post = await clean_html(post.content)
     post.content = cleaned_post
-    db_post = await crud_post.create_post(db, post, current_user.id)
+    db_post = await crud_post.create_post(db, post)
     return db_post
 
 
@@ -82,11 +82,6 @@ async def update_post(
     db_post = await crud_post.get_post(db, id)
     if not db_post:
         raise HTTPException(status.HTTP_404_NOT_FOUND, detail="post not found")
-    if db_post.owner_id != current_user.id:
-        raise HTTPException(
-            status.HTTP_401_UNAUTHORIZED,
-            detail="the current user is not the owner of the post",
-        )
     post.content = await clean_html(post.content)
     db_post = await crud_post.update_post(db, db_post, post)
     return db_post
@@ -104,9 +99,4 @@ async def delete_post(
     post = await crud_post.get_post(db, id)
     if not post:
         raise HTTPException(status.HTTP_404_NOT_FOUND, detail="post not found")
-    if post.owner_id != current_user.id:
-        raise HTTPException(
-            status.HTTP_401_UNAUTHORIZED,
-            detail="the current user is not the owner of the post",
-        )
     await crud_post.delete_post(db, post)
