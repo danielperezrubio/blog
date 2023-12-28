@@ -17,8 +17,6 @@ class Post(Base):
     updated_at = Column(DateTime)
 
     def __init__(self, title, content, tags, owner_id):
-        # self.published_at = datetime.now()
-        # self.updated_at = datetime.now()
         self.title = title
         self.content = content
         self.tags = tags
