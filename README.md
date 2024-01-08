@@ -9,9 +9,7 @@
 
 Docker compose will take care of everything, you must just define the environment variables
 
-### Environment variables
-
-All the environment variables are required.
+### Backend variables
 
 #### Cors
 
@@ -19,7 +17,7 @@ All the environment variables are required.
 
 #### Postgres database
 
-Postgres database will be created by docker with this variables
+Postgres database will be created by docker with this variables:
 
 - `POSTGRES_USER`: Postgres username.
 - `POSTGRES_PASSWORD`: Postgres password.
@@ -42,10 +40,23 @@ Postgres database will be created by docker with this variables
 
 #### Email
 
-Your email account for the app
+Your email account for the app:
 
-- `MAIL_USERNAME`: Email username.
-- `MAIL_PASSWORD`: Email password.
+- `MAIL_USERNAME`: Email address.
+- `MAIL_PASSWORD`: Application-specific password generated on the email server.
+
+The app uses google email configuration by default, but you can change it:
+
+- `MAIL_PORT`: The port number for the email server (optional, default: 587).
+- `MAIL_SERVER`: The server address for the email (optional, default: smtp.gmail.com).
+- `MAIL_STARTTLS`: Enable or disable STARTTLS encryption (optional, default: True).
+- `MAIL_SSL_TLS`: Enable or disable SSL/TLS encryption (optional, default: False).
+- `USE_CREDENTIALS`: Enable or disable the use of credentials (optional, default: True).
+
+### Frontend variables
+
+- `VITE_API_URL`: Backend url
+- `VITE_IMAGES_URL`: Url to load images
 
 ## Test
 
