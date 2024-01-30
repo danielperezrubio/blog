@@ -9,15 +9,9 @@ function Footer() {
         </div>
         <section>
           <a
-            href="https://www.facebook.com/daniel.perezrubio.75033/"
-            target="_blank"
-            className="me-3"
-          >
-            <i className="bi bi-facebook"></i>
-          </a>
-          <a
             href="https://www.linkedin.com/in/danielperezrubio/"
             target="_blank"
+            rel="noreferrer"
           >
             <i className="bi bi-linkedin"></i>
           </a>
