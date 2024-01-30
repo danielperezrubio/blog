@@ -28,7 +28,7 @@ function PostEdit() {
       getLatestPost()
         .then((res) => {
           const data = res.data[0];
-          setContent(data.content);
+          setContent(DOMPurify.sanitize(data.content));
           setTitle(data.title);
           setTags(data.tags);
           setPostId(data.id);
